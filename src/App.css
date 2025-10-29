@@ -1,0 +1,201 @@
+/* --- GLOBAL STYLES & LAYOUT --- */
+:root {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #6c757d; /* Gray */
+    --success-color: #28a745; /* Green */
+    --danger-color: #dc3545; /* Red */
+    --bg-color: #f8f9fa; /* Light Gray Background */
+    --card-bg: #ffffff; /* White Card/Form Background */
+    --border-color: #dee2e6;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-family);
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Main App Container Centering */
+#root > div {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- BUTTON STYLING --- */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, opacity 0.2s;
+    margin: 5px;
+}
+
+/* Primary Button (Create Task / Submit) */
+button[type="submit"], button:not([disabled]):not([style*="background-color"]) {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+button[type="submit"]:hover:not([disabled]), button:not([disabled]):hover:not([style*="background-color"]) {
+    background-color: #0056b3;
+}
+
+/* Disabled Button */
+button:disabled {
+    background-color: var(--secondary-color);
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: #fff;
+}
+
+/* Edit Button Specific Style */
+td button:nth-of-type(1) { /* Edit button */
+    background-color: var(--success-color);
+}
+td button:nth-of-type(1):hover {
+    background-color: #1e7e34;
+}
+
+/* Delete Button Specific Style */
+td button:nth-of-type(2) { /* Delete button */
+    background-color: var(--danger-color);
+    color: white;
+}
+td button:nth-of-type(2):hover {
+    background-color: #bd2130;
+}
+
+
+/* --- HOME PAGE (TABLE & SEARCH) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+th, td{
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    
+}
+
+.taskname{
+  font-weight: 800;
+}
+
+th{
+  font-weight: 400;
+}
+
+thead th {
+    background-color: var(--primary-color);
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Search Input */
+input[type="text"][placeholder*="Search"] {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    width: 300px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    transition: border-color 0.2s;
+}
+
+input[type="text"][placeholder*="Search"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* --- PAGINATION STYLING --- */
+.pagination-controls button {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    margin: 0 4px;
+    padding: 8px 12px;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.pagination-controls button[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Style for the current page button (based on inline styles you used) */
+.pagination-controls button[style*="bold"] {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+
+/* --- CREATE & EDIT FORM STYLING --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #495057;
+}
+
+/* Targeting inputs in the Create/Edit form */
+form input[type="text"] {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 100%; /* Full width within the form */
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Ensure the submit button stands out */
+form button[type="submit"] {
+    align-self: flex-start;
+    margin-top: 10px;
+}
